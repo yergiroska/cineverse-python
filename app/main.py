@@ -1,0 +1,47 @@
+from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
+from app.config import settings
+
+# Crear instancia de FastAPI
+app = FastAPI(
+    title="CineVerse API",
+    description="API para plataforma de seguimiento de películas y series",
+    version="1.0.0",
+    docs_url="/api/docs",  # Swagger UI
+    redoc_url="/api/redoc"  # ReDoc
+)
+
+# Configurar CORS
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=settings.cors_origins_list,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+
+# Ruta de prueba
+@app.get("/")
+async def root():
+    """Endpoint raíz de bienvenida"""
+    return {
+        "message": "Bienvenido a CineVerse API - Python",
+        "version": "1.0.0",
+        "docs": "/api/docs"
+    }
+
+
+@app.get("/health")
+async def health_check():
+    """Health check para verificar que la API está funcionando"""
+    return {
+        "status": "healthy",
+        "environment": settings.ENVIRONMENT
+    }
+
+
+# Aquí irán los routers cuando los creemos
+# from app.routers import auth, movies, reviews, watchlist
+# app.include_router(auth.router, prefix="/api/auth", tags=["Authentication"])
+# app.include_router(movies.router, prefix="/api/movies", tags=["Movies"])
