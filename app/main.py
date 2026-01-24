@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.config import settings
+from app.routers import auth
 
 # Crear instancia de FastAPI
 app = FastAPI(
@@ -26,7 +27,7 @@ app.add_middleware(
 async def root():
     """Endpoint raíz de bienvenida"""
     return {
-        "message": "Bienvenido a CineVerse API - Python",
+        "message": "Bienvenido a CineVerse API",
         "version": "1.0.0",
         "docs": "/api/docs"
     }
@@ -41,7 +42,5 @@ async def health_check():
     }
 
 
-# Aquí irán los routers cuando los creemos
-# from app.routers import auth, movies, reviews, watchlist
-# app.include_router(auth.router, prefix="/api/auth", tags=["Authentication"])
-# app.include_router(movies.router, prefix="/api/movies", tags=["Movies"])
+# Registrar routers
+app.include_router(auth.router, prefix="/api", tags=["Authentication"])
