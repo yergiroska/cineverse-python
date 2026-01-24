@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.config import settings
-from app.routers import auth
+from app.routers import auth, favorites
 
 # Crear instancia de FastAPI
 app = FastAPI(
@@ -44,3 +44,4 @@ async def health_check():
 
 # Registrar routers
 app.include_router(auth.router, prefix="/api", tags=["Authentication"])
+app.include_router(favorites.router, prefix="/api/favorites", tags=["Favorites"])
