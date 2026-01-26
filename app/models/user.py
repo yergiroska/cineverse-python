@@ -21,6 +21,7 @@ class User(Base):
 
     # Relaciones
     favorites = relationship("Favorite", back_populates="user", cascade="all, delete-orphan")
+    watchlists = relationship("Watchlist", back_populates="user", cascade="all, delete-orphan")
 
     def __repr__(self):
         return f"<User {self.email}>"

@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="16c49a78-687b-4f2a-9d11-998a191bdfa8" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/models/favorite.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/routers/favorites.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/schemas/favorite.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/models/watchlist.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/routers/watchlist.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/schemas/watchlist.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/alembic/env.py" beforeDir="false" afterPath="$PROJECT_DIR$/alembic/env.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/main.py" afterDir="false" />
@@ -36,23 +36,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "Python.config.executor": "Run",
-    "Python.main.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "ai.playground.ignore.import.keys.banner.in.settings": "true",
-    "git-widget-placeholder": "feature/1-autenticacin",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "D:/movies-series-platform/cineverse-python",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;Python.config.executor&quot;: &quot;Run&quot;,
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;ai.playground.ignore.import.keys.banner.in.settings&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;feature/1-autenticacin&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/movies-series-platform/cineverse-python&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -69,7 +69,9 @@
       <option name="presentableId" value="Default" />
       <updated>1769067672744</updated>
       <workItem from="1769067674287" duration="3643000" />
-      <workItem from="1769243274598" duration="7025000" />
+      <workItem from="1769243274598" duration="7741000" />
+      <workItem from="1769419336834" duration="1057000" />
+      <workItem from="1769421912205" duration="2726000" />
     </task>
     <servers />
   </component>
