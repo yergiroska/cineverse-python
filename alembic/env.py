@@ -10,6 +10,7 @@ from app.models.user import User
 from app.models.favorite import Favorite
 from app.models.watchlist import Watchlist
 from app.models.review import Review
+from app.models.search_history import SearchHistory
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.

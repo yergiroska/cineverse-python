@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="16c49a78-687b-4f2a-9d11-998a191bdfa8" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/models/review.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/routers/reviews.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/schemas/review.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/models/search_history.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/routers/search_history.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/schemas/search_history.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/alembic/env.py" beforeDir="false" afterPath="$PROJECT_DIR$/alembic/env.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/main.py" afterDir="false" />
@@ -74,6 +74,7 @@
       <workItem from="1769421912205" duration="3384000" />
       <workItem from="1769587963374" duration="88000" />
       <workItem from="1769588241700" duration="2234000" />
+      <workItem from="1769600571516" duration="1788000" />
     </task>
     <servers />
   </component>
