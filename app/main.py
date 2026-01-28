@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.config import settings
-from app.routers import auth, favorites, watchlist
+from app.routers import auth, favorites, watchlist, reviews
 
 # Crear instancia de FastAPI
 app = FastAPI(
@@ -46,3 +46,4 @@ async def health_check():
 app.include_router(auth.router, prefix="/api", tags=["Authentication"])
 app.include_router(favorites.router, prefix="/api/favorites", tags=["Favorites"])
 app.include_router(watchlist.router, prefix="/api/watchlist", tags=["Watchlist"])
+app.include_router(reviews.router, prefix="/api/reviews", tags=["Reviews"])
