@@ -1,6 +1,6 @@
-from fastapi import APIRouter, Depends, HTTPException, status
+from fastapi import APIRouter, Depends, HTTPException, status, Query
 from sqlalchemy.orm import Session
-from typing import List
+from typing import List, Optional
 from app.database import get_db
 from app.models.user import User
 from app.models.watchlist import Watchlist
@@ -10,19 +10,50 @@ from app.routers.auth import get_current_user
 router = APIRouter()
 
 
-@router.get("/", response_model=List[WatchlistResponse])
+@router.get("/")
 async def get_watchlist(
+        media_type: Optional[str] = Query(None, description="Filtrar por tipo: 'movie' o 'tv'"),
+        status: Optional[str] = Query(None, description="Filtrar por estado: 'por_ver', 'viendo', 'vista'"),
+        limit: int = Query(100, ge=1, le=500, description="Límite de resultados"),
+        offset: int = Query(0, ge=0, description="Offset para paginación"),
         current_user: User = Depends(get_current_user),
         db: Session = Depends(get_db)
 ):
-    """
-    Obtener todas las entradas de watchlist del usuario autenticado.
-    """
-    watchlist = db.query(Watchlist).filter(Watchlist.user_id == current_user.id).all()
-    return watchlist
+    # Query base
+    query = db.query(Watchlist).filter(Watchlist.user_id == current_user.id)
+
+    # Aplicar filtros
+    if media_type:
+        query = query.filter(Watchlist.media_type == media_type)
+
+    if status:
+        query = query.filter(Watchlist.status == status)
+
+    # Obtener total antes de paginar
+    total = query.count()
+
+    # Aplicar paginación y ordenamiento
+    watchlist = query.order_by(Watchlist.created_at.desc()).limit(limit).offset(offset).all()
+
+    # Formatear como Laravel
+    return {
+        "watchlist": [
+            {
+                "id": item.id,
+                "user_id": item.user_id,
+                "tmdb_id": item.tmdb_id,
+                "media_type": item.media_type,
+                "status": item.status,
+                "created_at": item.created_at.isoformat() if item.created_at else None,
+                "updated_at": item.updated_at.isoformat() if item.updated_at else None,
+            }
+            for item in watchlist
+        ],
+        "total": total
+    }
 
 
-@router.post("/", response_model=WatchlistResponse, status_code=status.HTTP_201_CREATED)
+@router.post("/", status_code=status.HTTP_201_CREATED)
 async def create_watchlist(
         watchlist_data: WatchlistCreate,
         current_user: User = Depends(get_current_user),
@@ -60,7 +91,19 @@ async def create_watchlist(
     db.commit()
     db.refresh(new_watchlist)
 
-    return new_watchlist
+    # Formatear como Laravel
+    return {
+        "message": "Agregado a watchlist exitosamente",
+        "watchlist": {
+            "id": new_watchlist.id,
+            "user_id": new_watchlist.user_id,
+            "tmdb_id": new_watchlist.tmdb_id,
+            "media_type": new_watchlist.media_type,
+            "status": new_watchlist.status,
+            "created_at": new_watchlist.created_at.isoformat() if new_watchlist.created_at else None,
+            "updated_at": new_watchlist.updated_at.isoformat() if new_watchlist.updated_at else None,
+        }
+    }
 
 
 @router.put("/{watchlist_id}", response_model=WatchlistResponse)

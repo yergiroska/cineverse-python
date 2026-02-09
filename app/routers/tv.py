@@ -66,7 +66,7 @@ async def search_tv(
 async def discover_tv(
         page: int = Query(1, ge=1, le=500, description="Número de página"),
         language: str = Query("es-ES", description="Idioma"),
-        with_genres: Optional[str] = Query(None, description="IDs de géneros separados por coma"),
+        genre: Optional[str] = Query(None, description="ID de género"),
         sort_by: Optional[str] = Query("popularity.desc", description="Criterio de ordenamiento")
 ):
     """
@@ -78,8 +78,8 @@ async def discover_tv(
             "language": language,
             "sort_by": sort_by
         }
-        if with_genres:
-            params["with_genres"] = with_genres
+        if genre:
+            params["with_genres"] = genre
 
         return await tmdb_service.discover_tv(params=params)
     except Exception as e:

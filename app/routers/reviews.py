@@ -10,17 +10,75 @@ from app.routers.auth import get_current_user
 router = APIRouter()
 
 
-@router.get("/", response_model=List[ReviewResponse])
+@router.get("/")
 async def get_reviews(
         current_user: User = Depends(get_current_user),
         db: Session = Depends(get_db)
 ):
-    """
-    Obtener todas las reviews del usuario autenticado.
-    """
     reviews = db.query(Review).filter(Review.user_id == current_user.id).all()
-    return reviews
 
+    # Formatear como Laravel
+    return {
+        "reviews": [
+            {
+                "id": review.id,
+                "user_id": review.user_id,
+                "media_type": review.media_type,
+                "tmdb_id": review.tmdb_id,
+                "rating": review.rating,
+                "content": review.content,
+                "created_at": review.created_at.isoformat() if review.created_at else None,
+                "updated_at": review.updated_at.isoformat() if review.updated_at else None,
+            }
+            for review in reviews
+        ]
+    }
+
+
+@router.get("/{media_type}/{tmdb_id}")
+async def get_reviews_by_media(
+        media_type: str,
+        tmdb_id: int,
+        db: Session = Depends(get_db)
+):
+    """
+    Obtener todas las reviews de una película/serie específica (de todos los usuarios).
+    Compatible con formato Laravel.
+    """
+    # Validar media_type
+    if media_type not in ['movie', 'movies', 'tv']:
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="media_type debe ser 'movie', 'movies' o 'tv'"
+        )
+
+    # Normalizar media_type (movies -> movie)
+    normalized_type = 'movie' if media_type == 'movies' else media_type
+
+    # Buscar reviews
+    reviews = db.query(Review).filter(
+            Review.media_type == normalized_type,
+            Review.tmdb_id == tmdb_id
+
+    ).all()
+
+    # Formatear como Laravel
+    return {
+        "reviews": [
+            {
+                "id": review.id,
+                "user_id": review.user_id,
+                "media_type": review.media_type,
+                "tmdb_id": review.tmdb_id,
+                "rating": review.rating,
+                "content": review.content,
+                "created_at": review.created_at.isoformat() if review.created_at else None,
+                "updated_at": review.updated_at.isoformat() if review.updated_at else None,
+            }
+            for review in reviews
+        ],
+        "total": len(reviews)
+    }
 
 @router.post("/", response_model=ReviewResponse, status_code=status.HTTP_201_CREATED)
 async def create_review(

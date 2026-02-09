@@ -44,7 +44,7 @@ class PasswordUpdate(BaseModel):
 
 class Token(BaseModel):
     """Schema de respuesta con token JWT"""
-    access_token: str
+    token: str
     token_type: str = "bearer"
     user: UserResponse
 

@@ -6,9 +6,9 @@ import enum
 
 class WatchlistStatus(str, enum.Enum):
     """Estados posibles de la watchlist"""
-    POR_VER = "por_ver"
-    VIENDO = "viendo"
-    VISTA = "vista"
+    plan_to_watch = "plan_to_watch"
+    watching = "watching"
+    completed = "completed"
 
 
 class Watchlist(Base):

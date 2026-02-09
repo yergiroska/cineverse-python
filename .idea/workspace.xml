@@ -2,11 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="16c49a78-687b-4f2a-9d11-998a191bdfa8" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/routers/movies.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/routers/tv.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/services/tmdb_service.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/watchlist.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/watchlist.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/routers/auth.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/routers/auth.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/routers/favorites.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/routers/favorites.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/routers/movies.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/routers/movies.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/routers/reviews.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/routers/reviews.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/routers/tv.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/routers/tv.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/routers/watchlist.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/routers/watchlist.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/schemas/user.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/schemas/user.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,8 +58,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-PY-253.30387.127" />
-        <option value="bundled-python-sdk-3944b0c99280-6d6dccd035ac-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-253.30387.127" />
+        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-PY-253.30387.173" />
+        <option value="bundled-python-sdk-4762d8aabb82-6d6dccd035ac-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-253.30387.173" />
       </set>
     </attachedChunks>
   </component>
@@ -75,6 +79,11 @@
       <workItem from="1769600571516" duration="1788000" />
       <workItem from="1769849023754" duration="123000" />
       <workItem from="1769849173357" duration="1758000" />
+      <workItem from="1770547168323" duration="523000" />
+      <workItem from="1770548328975" duration="3072000" />
+      <workItem from="1770625732467" duration="1128000" />
+      <workItem from="1770629891434" duration="457000" />
+      <workItem from="1770631257275" duration="2623000" />
     </task>
     <servers />
   </component>
