@@ -1,5 +1,6 @@
-from fastapi import APIRouter, Depends, HTTPException, status
+from fastapi import APIRouter, Depends, HTTPException,  status
 from sqlalchemy.orm import Session
+from sqlalchemy import and_
 from typing import List
 from app.database import get_db
 from app.models.user import User
@@ -26,7 +27,7 @@ async def get_reviews(
                 "media_type": review.media_type,
                 "tmdb_id": review.tmdb_id,
                 "rating": review.rating,
-                "content": review.content,
+                "review": review.title,
                 "created_at": review.created_at.isoformat() if review.created_at else None,
                 "updated_at": review.updated_at.isoformat() if review.updated_at else None,
             }
@@ -71,9 +72,14 @@ async def get_reviews_by_media(
                 "media_type": review.media_type,
                 "tmdb_id": review.tmdb_id,
                 "rating": review.rating,
-                "content": review.content,
+                "review": review.content,
                 "created_at": review.created_at.isoformat() if review.created_at else None,
                 "updated_at": review.updated_at.isoformat() if review.updated_at else None,
+                "user": {
+                    "id": review.user.id,
+                    "name": review.user.name
+
+                }
             }
             for review in reviews
         ],
@@ -98,9 +104,11 @@ async def create_review(
     """
     # Verificar si ya existe una review para este media
     existing = db.query(Review).filter(
-        Review.user_id == current_user.id,
-        Review.media_type == review_data.media_type,
-        Review.tmdb_id == review_data.tmdb_id
+        and_(
+            Review.user_id == current_user.id,
+            Review.media_type == review_data.media_type,
+            Review.tmdb_id == review_data.tmdb_id
+        )
     ).first()
 
     if existing:
@@ -115,7 +123,7 @@ async def create_review(
         media_type=review_data.media_type,
         tmdb_id=review_data.tmdb_id,
         rating=review_data.rating,
-        content=review_data.content
+        title=review_data.review
     )
 
     db.add(new_review)
@@ -133,34 +141,46 @@ async def update_review(
         db: Session = Depends(get_db)
 ):
     """
-    Actualizar una review existente.
+        Actualizar una review.
 
-    - **rating**: Nueva calificación (opcional)
-    - **content**: Nuevo contenido (opcional)
+        - Puede actualizar rating, content, o ambos
+        - Para borrar rating o content, enviar explícitamente null
+        - Si no se envía ninguno de los dos, se limpian ambos campos
     """
+    # Buscar review con and_ para mejor rendimiento
     review = db.query(Review).filter(
-        Review.id == review_id,
-        Review.user_id == current_user.id
+        and_(
+            Review.id == review_id,
+            Review.user_id == current_user.id
+        )
     ).first()
 
     if not review:
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
-            detail="Review no encontrada"
+            detail="Review no encontrado"
         )
 
-    # Actualizar campos si se proporcionan
-    if review_data.rating is not None:
-        review.rating = review_data.rating
+    # Obtener solo los campos que el usuario envió
+    update_data = review_data.model_dump(exclude_unset=True)
 
-    if review_data.content is not None:
-        review.content = review_data.content
+    # Si no envió ningún campo, limpiar todo
+    if not update_data:
+        review.rating = None
+        review.content = None
+    else:
+        # Actualizar rating si se envió
+        if "rating" in update_data:
+            review.rating = review_data.rating
+
+        # Actualizar content si se envió (ya viene limpio del validator)
+        if "review" in update_data:
+            review.content = review_data.review
 
     db.commit()
     db.refresh(review)
 
     return review
-
 
 @router.delete("/{review_id}", status_code=status.HTTP_204_NO_CONTENT)
 async def delete_review(
@@ -172,8 +192,10 @@ async def delete_review(
     Eliminar una review por ID.
     """
     review = db.query(Review).filter(
-        Review.id == review_id,
-        Review.user_id == current_user.id
+        and_(
+            Review.id == review_id,
+            Review.user_id == current_user.id
+        )
     ).first()
 
     if not review:

@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.config import settings
 from app.routers import auth, favorites, watchlist, reviews, search_history, movies, tv
+from app.services.cache_service import cache_service
 
 # Crear instancia de FastAPI
 app = FastAPI(
@@ -20,6 +21,18 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+# Event handlers para Redis
+@app.on_event("startup")
+async def startup_event():
+    """Inicializar servicios al arrancar la aplicación"""
+    await cache_service.connect()
+
+
+@app.on_event("shutdown")
+async def shutdown_event():
+    """Cerrar servicios al apagar la aplicación"""
+    await cache_service.disconnect()
 
 
 # Ruta de prueba

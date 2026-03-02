@@ -77,10 +77,10 @@ async def register(user_data: UserCreate, db: Session = Depends(get_db)):
     db.refresh(new_user)
 
     # Crear token de acceso
-    access_token = create_access_token(data={"sub": new_user.email})
+    token = create_access_token(data={"sub": new_user.email})
 
     return Token(
-        access_token=access_token,
+        token=token,
         token_type="bearer",
         user=UserResponse.model_validate(new_user)
     )
@@ -145,7 +145,7 @@ async def get_profile(current_user: User = Depends(get_current_user)):
     return UserResponse.model_validate(current_user)
 
 
-@router.put("/profile", response_model=UserResponse)
+@router.put("/profile")
 async def update_profile(
         profile_data: UserUpdate,
         current_user: User = Depends(get_current_user),
@@ -179,7 +179,19 @@ async def update_profile(
     db.commit()
     db.refresh(current_user)
 
-    return UserResponse.model_validate(current_user)
+    return {
+        "message": "Perfil actualizado exitosamente",
+        "user": {
+            "id": current_user.id,
+            "name": current_user.name,
+            "email": current_user.email,
+            "created_at": current_user.created_at.isoformat() if current_user.created_at else None,
+            "updated_at": current_user.updated_at.isoformat() if current_user.updated_at else None,
+        }
+    }
+
+
+    #return UserResponse.model_validate(current_user)
 
 
 @router.put("/profile/password")

@@ -1,6 +1,7 @@
 import httpx
 from typing import Optional, Dict, Any
 from app.config import settings
+from app.services.cache_service import cache_service
 
 
 class TMDBService:
@@ -27,12 +28,38 @@ class TMDBService:
         Returns:
             Respuesta JSON de TMDB
         """
+        # Crear clave de cache única basada en endpoint y parámetros
+        params_str = str(sorted(params.items())) if params else ""
+        cache_key = f"tmdb:{endpoint}:{params_str}"
+
+        # Intentar obtener del cache
+        cached_data = await cache_service.get(cache_key)
+        if cached_data:
+            print(f"🎯 Cache HIT: {cache_key[:50]}...")
+            return cached_data
+
+        # Si no está en cache, hacer request a TMDB
+        print(f"🌐 Cache MISS: {cache_key[:50]}... - Consultando TMDB")
         url = f"{self.base_url}{endpoint}"
 
         async with httpx.AsyncClient() as client:
             response = await client.get(url, headers=self.headers, params=params, timeout=10.0)
             response.raise_for_status()
-            return response.json()
+            data = response.json()
+
+            # Guardar en cache
+            # TTL diferente según el tipo de contenido
+            if "search" in endpoint:
+                ttl = 1800  # 30 minutos para búsquedas
+            elif any(x in endpoint for x in ["popular", "top_rated", "upcoming", "on_the_air"]):
+                ttl = 3600  # 1 hora para listados
+            elif "genres" in endpoint:
+                ttl = 86400  # 24 horas para géneros (cambian poco)
+            else:
+                ttl = 7200  # 2 horas para detalles específicos
+
+            await cache_service.set(cache_key, data, ttl)
+            return data
 
     # --- MOVIES ---
 

@@ -2,15 +2,32 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="16c49a78-687b-4f2a-9d11-998a191bdfa8" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/app/core/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/core/redis.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/services/cache_service.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/seeders/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/seeders/run_seeders.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/seeders/user_seeder.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/conftest.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/test_auth.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/test_favorites.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/test_movies.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/test_reviews.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/test_search_history.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/test_tv.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/test_watchlist.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/favorite.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/favorite.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/review.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/review.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/models/watchlist.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/watchlist.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/routers/auth.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/routers/auth.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/routers/favorites.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/routers/favorites.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/routers/movies.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/routers/movies.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/routers/reviews.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/routers/reviews.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/routers/tv.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/routers/tv.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/routers/watchlist.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/routers/watchlist.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/schemas/user.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/schemas/user.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/schemas/review.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/schemas/review.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/services/tmdb_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/services/tmdb_service.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,6 +58,53 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;Python tests.Python tests for tests.conftest.test_user.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.test_auth.TestLogin.test_login_success.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.test_auth.TestProfile.test_get_profile_unauthenticated.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.test_auth.TestRegister.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.test_auth.TestRegister.test_register_duplicate_email.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.test_auth.TestRegister.test_register_success.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.test_favorites.TestCreateFavorite.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.test_favorites.TestCreateFavorite.test_create_favorite_duplicate.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.test_favorites.TestDeleteFavorite.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.test_favorites.TestGetFavorites.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.test_favorites.TestGetFavorites.test_get_favorites_filter_by_media_type.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.test_favorites.TestGetFavorites.test_get_favorites_unauthenticated.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.test_favorites.TestGetFavorites.test_get_favorites_with_data.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.test_movies.TestMoviesPublicEndpoints.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.test_reviews.TestCreateReview.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.test_reviews.TestCreateReview.test_create_review_only_content.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.test_reviews.TestCreateReview.test_create_review_only_rating.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.test_reviews.TestCreateReview.test_create_review_with_rating_and_content.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.test_reviews.TestCreateReview.test_multiple_users_review_same_movie.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.test_reviews.TestUpdateReview.test_update_review_and_clean_rating.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.test_reviews.TestUpdateReview.test_update_review_and_clean_review.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.test_reviews.TestUpdateReview.test_update_review_both.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.test_reviews.TestUpdateReview.test_update_review_content.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.test_reviews.TestUpdateReview.test_update_review_rating.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.test_reviews.TestUpdateReview.test_update_review_when_create_new_into_db_content.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.test_reviews.TestUpdateReview.test_update_review_when_create_new_into_db_rating.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.test_search_history.TestCreateSearchHistory.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.test_search_history.TestCreateSearchHistory.test_create_search_history_empty_query.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.test_search_history.TestCreateSearchHistory.test_create_search_history_multiple.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.test_search_history.TestCreateSearchHistory.test_create_search_history_success.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.test_search_history.TestCreateSearchHistory.test_create_search_history_unauthenticated.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.test_search_history.TestDeleteSearchHistory.test_delete_all_search_history_success.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.test_search_history.TestGetSearchHistory.test_get_search_history_empty.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.test_search_history.TestGetSearchHistory.test_get_search_history_ordered_by_recent.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.test_search_history.TestGetSearchHistory.test_get_search_history_unauthenticated.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.test_search_history.TestGetSearchHistory.test_get_search_history_with_data.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.test_tv.TestTVPublicEndpoints.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.test_watchlist.TestCreateWatchlist.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.test_watchlist.TestCreateWatchlist.test_create_watchlist_duplicate.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.test_watchlist.TestCreateWatchlist.test_create_watchlist_movie.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.test_watchlist.TestCreateWatchlist.test_create_watchlist_tv.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.test_watchlist.TestCreateWatchlist.test_create_watchlist_with_status.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.test_watchlist.TestCreateWatchlist.test_create_watchlist_with_status_completed.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.test_watchlist.TestCreateWatchlist.test_create_watchlist_with_status_watching.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.test_watchlist.TestUpdateWatchlistStatus.test_update_status_success.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for tests.test_watchlist.TestUpdateWatchlistStatus.test_update_status_to_completed.executor&quot;: &quot;Run&quot;,
+    &quot;Python.CineVerse.executor&quot;: &quot;Debug&quot;,
     &quot;Python.config.executor&quot;: &quot;Run&quot;,
     &quot;Python.main.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
@@ -52,14 +116,142 @@
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;D:/movies-series-platform/cineverse-python&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;terminal&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\movies-series-platform\cineverse-python\app\core" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python tests.Python tests for tests.test_reviews.TestCreateReview.test_multiple_users_review_same_movie">
+    <configuration name="CineVerse" type="PythonConfigurationType" factoryName="Python">
+      <module name="cineverse-python" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="SDK_NAME" value="Python 3.13 (cineverse-python)" />
+      <option name="WORKING_DIRECTORY" value="D:\movies-series-platform\cineverse-python" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="RUN_TOOL" value="" />
+      <option name="SCRIPT_NAME" value="uvicorn" />
+      <option name="PARAMETERS" value="app.main:app --host 0.0.0.0 --port 8000" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="true" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests for tests.test_auth.TestLogin.test_login_success" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="cineverse-python" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="RUN_TOOL" value="" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;tests.test_auth.TestLogin.test_login_success&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests for tests.test_auth.TestRegister.test_register_duplicate_email" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="cineverse-python" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="RUN_TOOL" value="" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;tests.test_auth.TestRegister.test_register_duplicate_email&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests for tests.test_auth.TestRegister.test_register_success" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="cineverse-python" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="RUN_TOOL" value="" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;tests.test_auth.TestRegister.test_register_success&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests for tests.test_reviews.TestCreateReview.test_multiple_users_review_same_movie" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="cineverse-python" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="RUN_TOOL" value="" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;tests.test_reviews.TestCreateReview.test_multiple_users_review_same_movie&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests for tests.test_watchlist.TestUpdateWatchlistStatus.test_update_status_to_completed" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="cineverse-python" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="RUN_TOOL" value="" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;tests.test_watchlist.TestUpdateWatchlistStatus.test_update_status_to_completed&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Python.CineVerse" />
+      <item itemvalue="Python tests.Python tests for tests.test_auth.TestLogin.test_login_success" />
+      <item itemvalue="Python tests.Python tests for tests.test_auth.TestRegister.test_register_duplicate_email" />
+      <item itemvalue="Python tests.Python tests for tests.test_auth.TestRegister.test_register_success" />
+      <item itemvalue="Python tests.Python tests for tests.test_reviews.TestCreateReview.test_multiple_users_review_same_movie" />
+      <item itemvalue="Python tests.Python tests for tests.test_watchlist.TestUpdateWatchlistStatus.test_update_status_to_completed" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python tests.Python tests for tests.test_reviews.TestCreateReview.test_multiple_users_review_same_movie" />
+        <item itemvalue="Python tests.Python tests for tests.test_auth.TestLogin.test_login_success" />
+        <item itemvalue="Python tests.Python tests for tests.test_auth.TestRegister.test_register_success" />
+        <item itemvalue="Python tests.Python tests for tests.test_auth.TestRegister.test_register_duplicate_email" />
+        <item itemvalue="Python tests.Python tests for tests.test_watchlist.TestUpdateWatchlistStatus.test_update_status_to_completed" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-PY-253.30387.173" />
-        <option value="bundled-python-sdk-4762d8aabb82-6d6dccd035ac-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-253.30387.173" />
+        <option value="bundled-python-sdk-2653e85de345-6d6dccd035ac-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-253.31033.139" />
       </set>
     </attachedChunks>
   </component>
@@ -79,18 +271,50 @@
       <workItem from="1769600571516" duration="1788000" />
       <workItem from="1769849023754" duration="123000" />
       <workItem from="1769849173357" duration="1758000" />
-      <workItem from="1770547168323" duration="523000" />
-      <workItem from="1770548328975" duration="3072000" />
-      <workItem from="1770625732467" duration="1128000" />
-      <workItem from="1770629891434" duration="457000" />
-      <workItem from="1770631257275" duration="2623000" />
+      <workItem from="1769938798313" duration="6970000" />
+      <workItem from="1770018236430" duration="4624000" />
+      <workItem from="1770029575547" duration="1671000" />
+      <workItem from="1770104334375" duration="1926000" />
+      <workItem from="1770193068088" duration="61000" />
+      <workItem from="1770193206858" duration="10151000" />
+      <workItem from="1770363080553" duration="1323000" />
+      <workItem from="1770542564660" duration="1905000" />
+      <workItem from="1770885024243" duration="16000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/app/routers/watchlist.py</url>
+          <line>110</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/app/routers/watchlist.py</url>
+          <line>125</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/cineverse_python$.coverage" NAME=" Coverage Results" MODIFIED="1770105822125" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/cineverse_python$main.coverage" NAME="main Coverage Results" MODIFIED="1769074512889" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app" />
     <SUITE FILE_PATH="coverage/cineverse_python$config.coverage" NAME="config Coverage Results" MODIFIED="1769074502514" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app" />
   </component>
