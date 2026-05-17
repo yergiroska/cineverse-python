@@ -23,7 +23,8 @@ class UserLogin(BaseModel):
 class UserResponse(UserBase):
     """Schema de respuesta (sin password)"""
     id: int
-    created_at: datetime
+    #created_at: datetime
+    created_at: Optional[datetime] = None
     updated_at: Optional[datetime] = None
 
     class Config:

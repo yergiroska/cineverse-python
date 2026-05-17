@@ -1,7 +1,7 @@
 from sqlalchemy import Column, Integer, String, DateTime, func
 from sqlalchemy.orm import relationship
 from app.database import Base
-
+from datetime import datetime, timezone
 
 class User(Base):
     """
@@ -16,8 +16,11 @@ class User(Base):
     password = Column(String(255), nullable=False)  # Hash bcrypt
 
     # Timestamps
-    created_at = Column(DateTime(timezone=True), server_default=func.now())
-    updated_at = Column(DateTime(timezone=True), onupdate=func.now())
+    #created_at = Column(DateTime(timezone=True), server_default=func.now())
+    #updated_at = Column(DateTime(timezone=True), onupdate=func.now())
+    
+    created_at = Column(DateTime(timezone=True), default=lambda: datetime.now(timezone.utc), nullable=False)
+    updated_at = Column(DateTime(timezone=True), onupdate=lambda: datetime.now(timezone.utc))
 
     # Relaciones
     favorites = relationship("Favorite", back_populates="user", cascade="all, delete-orphan")
