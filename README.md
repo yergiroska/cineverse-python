@@ -22,7 +22,7 @@
 
 CineVerse API provee toda la lógica backend para una aplicación full-stack de seguimiento de películas y series. Se integra con la **TMDB API** para obtener datos en tiempo real, y gestiona autenticación de usuarios, favoritos, listas de seguimiento, reseñas e historial de búsqueda.
 
-El frontend (React + Vite) está disponible en: [movies-series-frontend](../movies-series-frontend)
+El frontend (React + Vite) está disponible en: [movies-series-frontend](https://github.com/yergiroska/movies-series-frontend).
 
 ---
 
